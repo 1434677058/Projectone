@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>热点事件社交媒体情感分析系统</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-glow"></div>
+    <header class="hero">
+      <p class="badge">Graduation Project Prototype</p>
+      <h1>面向热点事件的社交媒体情感分析系统</h1>
+      <p class="subtitle">
+        覆盖「数据爬取 → 预处理 → 主题挖掘 → 情感分析 → 可视化」的完整流程，支持快速演示与基础交互。
+      </p>
+      <div class="hero-actions">
+        <button id="startDemo" class="btn primary">开始体验</button>
+        <button id="viewPipeline" class="btn ghost">查看分析流程</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="panel">
+        <div class="panel-header">
+          <h2>事件输入与任务配置</h2>
+          <span class="status" id="taskStatus">待配置</span>
+        </div>
+        <form id="eventForm" class="event-form">
+          <label>
+            热点事件关键词
+            <input type="text" id="keyword" placeholder="例如：某电影上映、体育赛事、政策发布" required />
+          </label>
+          <label>
+            数据来源
+            <select id="source" required>
+              <option value="微博">微博</option>
+              <option value="知乎">知乎</option>
+              <option value="抖音">抖音</option>
+              <option value="综合平台">综合平台</option>
+            </select>
+          </label>
+          <label>
+            时间范围
+            <input type="text" id="timeRange" placeholder="例如：近7天 / 2026-04-01 ~ 2026-04-26" required />
+          </label>
+          <button type="submit" class="btn primary full">生成分析任务</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>分析流程进度</h2>
+          <span class="status neutral" id="progressLabel">未开始</span>
+        </div>
+        <div class="pipeline" id="pipeline">
+          <button class="step" data-step="1">1. 数据爬取</button>
+          <button class="step" data-step="2">2. 数据预处理</button>
+          <button class="step" data-step="3">3. 主题挖掘</button>
+          <button class="step" data-step="4">4. 情感分析</button>
+          <button class="step" data-step="5">5. 可视化演示</button>
+        </div>
+        <p id="stepDescription" class="step-description">点击任一步骤可查看该模块说明。</p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>结果预览</h2>
+          <span class="status success">演示数据</span>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h3>情感分布</h3>
+            <ul>
+              <li><span>积极</span><strong>61%</strong></li>
+              <li><span>中性</span><strong>24%</strong></li>
+              <li><span>消极</span><strong>15%</strong></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>高频主题</h3>
+            <p>政策影响、用户体验、品牌口碑、后续预期</p>
+          </article>
+          <article class="card">
+            <h3>舆情变化趋势</h3>
+            <p>近 24 小时积极情绪上升，负面话题集中于服务体验相关讨论。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 热点事件情感分析系统前端原型 · Python 后端可接入 Flask/FastAPI</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
